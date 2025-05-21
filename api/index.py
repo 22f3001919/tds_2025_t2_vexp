@@ -20,9 +20,17 @@ def index ():
 @app.get ("/api/params")
 def search (request: Request):
     parameters = list ()
+    parameter_values = list ()
 
     for parameter_name in request.query_params.keys ():
-        parameters.append (parameter_name)
+        
+        parameter_values = request.query_params.getlist (parameter_name)
+        for value in parameter_values:
+            parameters.append ({
+                "name": parameter_name,
+                "value": value
+            })
+
 
     print (parameters)
 
