@@ -43,6 +43,7 @@ from pydantic import BaseModel
 
 class Job (BaseModel):
     name: str
+    cost: int
 
 jobs = list ()
 
