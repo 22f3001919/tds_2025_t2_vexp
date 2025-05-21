@@ -37,3 +37,21 @@ def search (request: Request):
     return {
         "parameters": parameters,
     }
+
+from pydantic import BaseModel
+from datetime import datetime
+
+class Job (BaseModel):
+    name: str
+    cost: int
+    start_date: datetime
+
+jobs = list ()
+
+@app.post ("/api/create")
+def create (job: Job):
+    jobs.append (job)
+
+    return {
+        "job": job
+    }
