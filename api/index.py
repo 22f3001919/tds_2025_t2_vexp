@@ -39,12 +39,10 @@ def search (request: Request):
     }
 
 from pydantic import BaseModel
-from datetime import datetime
+
 
 class Job (BaseModel):
     name: str
-    cost: int
-    start_date: datetime
 
 jobs = list ()
 
