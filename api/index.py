@@ -61,4 +61,18 @@ def get_jobs ():
         "jobs": jobs
     }
 
+@app.delete ("/api/delete/{job_no}")
+def delelte_job (job_no: int):
+    if job_no < 0 or job_no >= len (jobs):
+        return {
+            "error": "Job not found"
+        }
+
+    job = jobs.pop (job_no)
+
+    return {
+        "job": job
+    }
+
+
 
