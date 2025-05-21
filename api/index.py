@@ -54,3 +54,11 @@ def create (job: Job):
     return {
         "job": job
     }
+
+@app.get ("/api/jobs")
+def get_jobs ():
+    return {
+        "jobs": jobs
+    }
+
+
